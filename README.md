@@ -1,4 +1,5 @@
-# Privacy-preserving Data Science
+# Privacy-preserving Data Science  
+*Mitigating Execution Time Leakage in Differential Privacy*
 
 This repository contains code and materials for implementing privacy-preserving data analysis techniques using differential privacy in a database context. The project focuses on reducing execution time leakage in private SQL query processing by applying padding techniques, allowing tunable trade-offs between privacy and utility.
 
@@ -9,7 +10,20 @@ The project integrates OpenDP with PostgreSQL to enable privacy-safe data querie
 - Protect query execution time to minimize side-channel attacks.
 - Implement padding techniques that balance privacy guarantees and query performance.
 - Visualize and evaluate privacy-utility trade-offs.
+  
+## Background
 
+- Conventional data privacy methods have significant limitations and assumptions.  
+- Differential Privacy improves privacy guarantees by protecting individuals and adding controlled noise.  
+- However, it is vulnerable to execution time leakage attacks, which this project aims to mitigate.
+
+## Proposed Solutions
+
+- **Manual Time Delay:** Introduces fixed delays but is largely ineffective in practice.  
+- **Data Padding:** Adds dummy data to mask query sizes and execution times.  
+  - **Full Padding:** Offers strong privacy by fully hiding execution time patterns but at the cost of reduced utility and slower runtimes.  
+  - **Partial Padding (Differential Privacy Padding):** Provides a balanced trade-off, improving efficiency while still protecting user-decided privacy.
+    
 ## Features
 
 - Padding strategies to reduce timing leakage in differential privacy.
@@ -24,7 +38,7 @@ The project integrates OpenDP with PostgreSQL to enable privacy-safe data querie
 - R (for visualization)
 - Python libraries: `opendp`, `psycopg2`, `pandas`, `matplotlib`
 - R packages: `ggplot2`
-- 
+
 ## Installation
 
 1. Set up PostgreSQL and create a test database.
